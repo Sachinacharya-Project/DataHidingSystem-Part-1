@@ -10,7 +10,7 @@ root.title('Choose Folder to Lock')
 root.withdraw()
 root.attributes('-topmost', True)
 
-password = "9865032909"
+password = os.environ.get('DATA_PASSWORD')
 def GetFolderName(info):
     folder = filedialog.askdirectory(title=info)
     return folder
