@@ -90,3 +90,5 @@ while True:
     else:
         print("Creating new Password database")
         set_password("new")
+        input("Press ENTER to Continue")
+        os.system("cls")
