@@ -1,8 +1,7 @@
-import os, keyboard
 from getpass import getpass
 from colorama import init, Fore
 from tkinter import filedialog, Tk
-import bcrypt, json
+import bcrypt, json, time, os
 
 KEY_LOCATION = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'key_data.json')
 
@@ -73,8 +72,9 @@ while True:
                         os.mkdir("Locked")
                         print("{}Isolated Folder has been created under name Locked!".format(Fore.GREEN))
                     else:
+                        os.popen('cacls Locked.{645ff040-5081-101b-9f08-00aa002f954e} /c /e /p everyone:f')
                         os.popen("attrib -h 'Locked.{645ff040-5081-101b-9f08-00aa002f954e}'")
-                        os.popen('cacls "Locked.{645ff040-5081-101b-9f08-00aa002f954e}" /c /e /p everyone:f')
+                        time.sleep(2)
                         os.rename("Locked.{645ff040-5081-101b-9f08-00aa002f954e}", "Locked")
                         os.system('cls')
                         print("{}Success".format(Fore.GREEN))
